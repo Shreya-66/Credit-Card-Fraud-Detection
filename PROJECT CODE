@@ -1,0 +1,90 @@
+
+Step 1:Import Required Libraries (Environment Setup)
+
+    import pandas as pd
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+
+
+Step 2: Import ML Libraries (Modeling Tools)
+
+    from sklearn.model_selection import train_test_split
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.preprocessing import StandardScaler
+    from sklearn.metrics import (
+        confusion_matrix,
+        classification_report,
+        precision_score,
+        recall_score
+    )
+
+
+Step 3: Load Dataset (Data Loading)
+
+      df = pd.read_csv('/kaggle/input/creditcardfraud/creditcard.csv')
+
+Step 4: Preview Dataset (Data Understanding)
+
+      df.head()
+
+Step 5: Dataset Shape & Structure
+
+      df.shape
+      df.columns
+
+
+Step 6: Check Missing Values
+
+      df.isnull().sum()
+
+Step 7: Check Class Distribution (Imbalanced Data)
+
+      df['Class'].value_counts()
+
+Step 8: Feature & Target Separation
+
+      X = df.drop('Class', axis=1)
+      y = df['Class’]
+
+Step 9: Feature Scaling
+
+      scaler = StandardScaler()
+      X['Amount'] = scaler.fit_transform(X[['Amount']])
+
+Step 10: Train-Test Split
+
+      X_train, X_test, y_train, y_test = train_test_split(
+          X, y,
+          test_size=0.2,
+          random_state=42,
+          stratify=y
+      )
+
+Step 11: Model Creation
+
+      model = LogisticRegression(
+          max_iter=1000,
+          class_weight='balanced'
+      )
+
+Step 12: Train the Model
+
+      model.fit(X_train, y_train)
+
+Step 13: Make Predictions
+
+      y_pred = model.predict(X_test)
+
+Step 14: Confusion Matrix
+
+      cm = confusion_matrix(y_test, y_pred)
+      print(cm)
+
+Step 15: Precision, Recall & F1 Score
+
+      precision = precision_score(y_test, y_pred)
+      recall = recall_score(y_test, y_pred)
+      
+      print(classification_report(y_test, y_pred))
+
