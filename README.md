@@ -1,2 +1,5 @@
 # Credit-Card-Fraud-Detection
 This project uses Logistic Regression to classify credit card transactions as fraudulent or legitimate. It handles highly imbalanced data using class balancing and evaluates performance with precision, recall, F1-score, and confusion matrix.
+This project focuses on detecting fraudulent credit card transactions using Machine Learning techniques. A Logistic Regression model is built to classify transactions as legitimate or fraudulent. The dataset used is highly imbalanced, so special attention is given to handling class imbalance using class weighting and appropriate evaluation metrics.
+The project includes steps such as data loading, preprocessing, feature scaling, exploratory data analysis, model training, and evaluation using precision, recall, F1-score, and confusion matrix. The goal is to accurately identify fraudulent transactions while minimizing false fraud alerts.
+This project demonstrates a practical application of Data Science and Machine Learning in the FinTech domain and highlights the importance of evaluation metrics beyond accuracy for imbalanced datasets.
